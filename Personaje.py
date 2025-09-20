@@ -91,7 +91,7 @@ class Personaje:
         pygame.draw.aalines(screen, self.colorLineas, False, [(pos_x1, pos_y1), (pos_x2, pos_y2)], 3)  # 3 es el grosor
 
         # Dibujar círculos en los extremos para simular los bordes redondeados
-        radio = 5  # Radio de los círculos
+        radio = 3  # Radio de los círculos
         pygame.draw.circle(screen, self.colorCirculos, (pos_x1, pos_y1), radio)  # Extremo izquierdo
         pygame.draw.circle(screen, self.colorCirculos, (pos_x2, pos_y2), radio)  # Extremo derecho
 

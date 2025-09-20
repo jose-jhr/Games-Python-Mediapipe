@@ -27,7 +27,7 @@ screen = pygame.display.set_mode((anchoPantalla, altoPantalla))
 clock = pygame.time.Clock()
 RUNNING = True
 #tamano de cada punto de la imagen, es general y puede ser modificado
-tamanoPoint = 50
+tamanoPoint = 80
 
 
 '''
@@ -66,10 +66,13 @@ while cap.isOpened():
     #llamamos al modelo para la deteccion del cuerpo humano
     results = pointsDetect.recognized(frame=frame)
 
-    #rgb_frame = cv2.flip(rgb_frame, 1)
+    rgb_frame = cv2.flip(rgb_frame, 1)
+
+    #resize pantalla de video
+    rgb_frame = cv2.resize(rgb_frame,(350,350))
+
     # Display the frame
     cv2.imshow('Pose Detection', rgb_frame)
-
 
     '''
     ScreenDraw pygma
@@ -83,6 +86,7 @@ while cap.isOpened():
 
     #Actualizamos el screen de pygame
     pygame.display.flip()
+
 
     # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
